@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseGovPtNet", "BaseGovPtNet\BaseGovPtNet.csproj", "{4328EE50-314F-4073-B07D-5E8B1153A0EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseGovPtNet.Console", "BaseGovPtNet.Console\BaseGovPtNet.Console.csproj", "{B68B4741-7A58-4F10-A734-0B20B5D73F51}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4328EE50-314F-4073-B07D-5E8B1153A0EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4328EE50-314F-4073-B07D-5E8B1153A0EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4328EE50-314F-4073-B07D-5E8B1153A0EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4328EE50-314F-4073-B07D-5E8B1153A0EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B68B4741-7A58-4F10-A734-0B20B5D73F51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B68B4741-7A58-4F10-A734-0B20B5D73F51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B68B4741-7A58-4F10-A734-0B20B5D73F51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B68B4741-7A58-4F10-A734-0B20B5D73F51}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4F4B5DF2-A0C8-4A49-B10E-5F45E1A2BBD3}
+	EndGlobalSection
+EndGlobal

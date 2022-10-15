@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFramework>net6.0</TargetFramework>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <ImplicitUsings>enable</ImplicitUsings>
+	  <Nullable>enable</Nullable>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <RepositoryUrl>https://github.com/sidegence/BaseGovPtNet</RepositoryUrl>
+	  <AssemblyVersion>1.0.9</AssemblyVersion>
+	  <Version>$(AssemblyVersion)</Version>
+	  <Authors>Sergio M</Authors>
+	  <Company>www.sidegence.com</Company>
+	  <Copyright>@ www.sidegence.com</Copyright>
+	  <PackageTags>base;base2;Portugal;Portuguese;Rest;</PackageTags>
+  </PropertyGroup>
+
+</Project>
