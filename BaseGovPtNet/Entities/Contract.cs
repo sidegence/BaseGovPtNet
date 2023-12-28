@@ -51,4 +51,26 @@
         public string? description { get; set; }
         public int id { get; set; }
     }
+    public class ContractSummary
+    {
+        public string? contracting { get; set; }
+        public string? contractingProcedureType { get; set; }
+        public string? publicationDate { get; set; }
+        public string? contracted { get; set; }
+        public string? objectBriefDescription { get; set; }
+        public string? initialContractualPrice { get; set; }
+        public string? signingDate { get; set; }
+        public int id { get; set; }
+    }
+
+    public enum ContractFilter
+    {
+        adjudicanteid,
+        adjucatariaid,
+        emissora,
+        desdedatapublicacao,
+        atedatapublicacao,
+        desdeprecobase,
+        ateprecobase,
+    }
 }

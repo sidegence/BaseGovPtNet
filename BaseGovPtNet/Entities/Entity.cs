@@ -16,5 +16,11 @@ namespace BaseGovPtNet.Entities
         public string? description { get; set; }
         public string? location { get; set; }
         public int id { get; set; }
+        public string? country { get; set; }
+    }
+
+    public enum EntityFilter
+    {
+        texto,
     }
 }

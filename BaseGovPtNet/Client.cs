@@ -1,5 +1,11 @@
 ﻿using BaseGovPtNet.Entities;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Http.Json;
+using System.Security.Principal;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading;
 
 namespace BaseGovPtNet
@@ -12,8 +18,8 @@ namespace BaseGovPtNet
         {
             { typeof(Asset), "bensmoveis" },
             { typeof(Entity), "entidades" },
-            { typeof(ContractSummary), "contratos" },
             { typeof(Contract), "contratos" },
+            { typeof(ContractSummary), "contratos" },
         };
 
         public Client()
@@ -24,19 +30,31 @@ namespace BaseGovPtNet
             _client.Dispose();
         }
 
-        public async Task<T?> GetByIdAsync<T>(int id, CancellationToken cancellationToken = default)
+        public async Task<T?> GetByIdAsync<T>(
+            int id, 
+            CancellationToken cancellationToken = default
+        )
         {
             var url = $"{Url}/{_TypeSubUrlMap[typeof(T)]}/{id}";
-            return await _client.GetFromJsonAsync<T>(url, cancellationToken);
+            var rsp = await _client.GetStringAsync(url, cancellationToken);
+
+            return JsonConvert.DeserializeObject<T>(rsp);
         }
 
-        public async Task<IEnumerable<T>?> ListAsync<T>(int pageNumber, int pageSize = 10, bool ascending = true, CancellationToken cancellationToken = default)
+        public async Task<IEnumerable<TOut>?> ListAsync<TOut, TFilter>(
+            int pageNumber, 
+            IEnumerable<KeyValuePair<TFilter,string>> filter, 
+            int pageSize = 10, 
+            CancellationToken cancellationToken = default
+        ) 
         {
             _client.DefaultRequestHeaders.Clear();
             _client.DefaultRequestHeaders.Add("range", $"items={(pageNumber - 1) * pageSize}-{pageNumber * pageSize - 1}");
-            var url = $"{Url}/{_TypeSubUrlMap[typeof(T)]}?sort({(ascending ? "+" : "-")}id)";
-            return await _client.GetFromJsonAsync<IEnumerable<T>>(url, cancellationToken);
-        }
 
+            var url = $"{Url}/{_TypeSubUrlMap[typeof(TOut)]}?{(filter.Any() ? string.Join("&", filter.Select(_=>_.Key + "=" + _.Value)):"")}&sort(-id)";
+            var rsp = await _client.GetStringAsync(url, cancellationToken);
+
+            return JsonConvert.DeserializeObject<IEnumerable<TOut>>(rsp);
+        }
     }
 }

@@ -15,4 +15,8 @@
 	  <PackageTags>base;base2;Portugal;Portuguese;Rest;</PackageTags>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
 </Project>
